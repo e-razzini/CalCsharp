@@ -1,0 +1,10 @@
+C:\Users\Elton\source\repos\calculadora_Com_Obj\bin\Debug\calculadora_Com_Obj.exe.config
+C:\Users\Elton\source\repos\calculadora_Com_Obj\bin\Debug\calculadora_Com_Obj.exe
+C:\Users\Elton\source\repos\calculadora_Com_Obj\bin\Debug\calculadora_Com_Obj.pdb
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.csprojAssemblyReference.cache
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.calculadora.resources
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.Properties.Resources.resources
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.csproj.GenerateResource.cache
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.csproj.CoreCompileInputs.cache
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.exe
+C:\Users\Elton\source\repos\calculadora_Com_Obj\obj\Debug\calculadora_Com_Obj.pdb
