@@ -16,7 +16,7 @@ namespace calculadora_Com_Obj
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new calculadora());
+            Application.Run(new Calculadora());
         }
     }
 }

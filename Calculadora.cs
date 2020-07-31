@@ -11,16 +11,21 @@ using System.Windows.Forms;
 
 namespace calculadora_Com_Obj
 {
-    public partial class calculadora : Form
+    public partial class Calculadora : Form
     {
-        double primeiro;
-        double segundo;
-        string operador;
-        public calculadora()
+        double primeiro = 0;
+        double segundo = 0;
+        string operacao;
+        double aux = 0;
+        int contador = 0;
+       
+        public Calculadora()
         {
             InitializeComponent();
         }
-        Classes.Operador cal = new Classes.Operador();
+
+        Classes.Operador Cal = new Classes.Operador();
+
         private void InitializeComponent()
         {
             this.tela = new System.Windows.Forms.TextBox();
@@ -46,7 +51,7 @@ namespace calculadora_Com_Obj
             // 
             // tela
             // 
-            this.tela.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tela.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tela.Location = new System.Drawing.Point(6, 5);
             this.tela.Multiline = true;
             this.tela.Name = "tela";
@@ -66,7 +71,7 @@ namespace calculadora_Com_Obj
             this.num1.TabIndex = 1;
             this.num1.Text = "1";
             this.num1.UseVisualStyleBackColor = true;
-            this.num1.Click += new System.EventHandler(this.num1_Click);
+            this.num1.Click += new System.EventHandler(this.Num1_Click);
             // 
             // num2
             // 
@@ -80,7 +85,7 @@ namespace calculadora_Com_Obj
             this.num2.TabIndex = 2;
             this.num2.Text = "2";
             this.num2.UseVisualStyleBackColor = true;
-            this.num2.Click += new System.EventHandler(this.num2_Click);
+            this.num2.Click += new System.EventHandler(this.Num2_Click);
             // 
             // num3
             // 
@@ -94,7 +99,7 @@ namespace calculadora_Com_Obj
             this.num3.TabIndex = 3;
             this.num3.Text = "3";
             this.num3.UseVisualStyleBackColor = true;
-            this.num3.Click += new System.EventHandler(this.num3_Click);
+            this.num3.Click += new System.EventHandler(this.Num3_Click);
             // 
             // num4
             // 
@@ -108,7 +113,7 @@ namespace calculadora_Com_Obj
             this.num4.TabIndex = 4;
             this.num4.Text = "4";
             this.num4.UseVisualStyleBackColor = true;
-            this.num4.Click += new System.EventHandler(this.num4_Click);
+            this.num4.Click += new System.EventHandler(this.Num4_Click);
             // 
             // num5
             // 
@@ -122,7 +127,7 @@ namespace calculadora_Com_Obj
             this.num5.TabIndex = 5;
             this.num5.Text = "5";
             this.num5.UseVisualStyleBackColor = true;
-            this.num5.Click += new System.EventHandler(this.num5_Click);
+            this.num5.Click += new System.EventHandler(this.Num5_Click);
             // 
             // num6
             // 
@@ -136,7 +141,7 @@ namespace calculadora_Com_Obj
             this.num6.TabIndex = 6;
             this.num6.Text = "6";
             this.num6.UseVisualStyleBackColor = true;
-            this.num6.Click += new System.EventHandler(this.num6_Click);
+            this.num6.Click += new System.EventHandler(this.Num6_Click);
             // 
             // num7
             // 
@@ -150,7 +155,7 @@ namespace calculadora_Com_Obj
             this.num7.TabIndex = 7;
             this.num7.Text = "7";
             this.num7.UseVisualStyleBackColor = true;
-            this.num7.Click += new System.EventHandler(this.num7_Click);
+            this.num7.Click += new System.EventHandler(this.Num7_Click);
             // 
             // num8
             // 
@@ -164,7 +169,7 @@ namespace calculadora_Com_Obj
             this.num8.TabIndex = 8;
             this.num8.Text = "8";
             this.num8.UseVisualStyleBackColor = true;
-            this.num8.Click += new System.EventHandler(this.num8_Click);
+            this.num8.Click += new System.EventHandler(this.Num8_Click);
             // 
             // num9
             // 
@@ -178,7 +183,7 @@ namespace calculadora_Com_Obj
             this.num9.TabIndex = 9;
             this.num9.Text = "9";
             this.num9.UseVisualStyleBackColor = true;
-            this.num9.Click += new System.EventHandler(this.num9_Click);
+            this.num9.Click += new System.EventHandler(this.Num9_Click);
             // 
             // somarBtn
             // 
@@ -192,7 +197,7 @@ namespace calculadora_Com_Obj
             this.somarBtn.TabIndex = 10;
             this.somarBtn.Text = "+";
             this.somarBtn.UseVisualStyleBackColor = true;
-            this.somarBtn.Click += new System.EventHandler(this.somar_Click);
+            this.somarBtn.Click += new System.EventHandler(this.Somar_Click);
             // 
             // numzero
             // 
@@ -206,7 +211,7 @@ namespace calculadora_Com_Obj
             this.numzero.TabIndex = 11;
             this.numzero.Text = "0";
             this.numzero.UseVisualStyleBackColor = true;
-            this.numzero.Click += new System.EventHandler(this.numZero_Click);
+            this.numzero.Click += new System.EventHandler(this.NumZero_Click);
             // 
             // diminuirBtn
             // 
@@ -220,7 +225,7 @@ namespace calculadora_Com_Obj
             this.diminuirBtn.TabIndex = 12;
             this.diminuirBtn.Text = "-";
             this.diminuirBtn.UseVisualStyleBackColor = true;
-            this.diminuirBtn.Click += new System.EventHandler(this.diminuir_Click);
+            this.diminuirBtn.Click += new System.EventHandler(this.Diminuir_Click);
             // 
             // multiplicarBtn
             // 
@@ -234,7 +239,7 @@ namespace calculadora_Com_Obj
             this.multiplicarBtn.TabIndex = 13;
             this.multiplicarBtn.Text = "*";
             this.multiplicarBtn.UseVisualStyleBackColor = true;
-            this.multiplicarBtn.Click += new System.EventHandler(this.multiplicar_Click);
+            this.multiplicarBtn.Click += new System.EventHandler(this.Multiplicar_Click);
             // 
             // dividirBtn
             // 
@@ -248,7 +253,7 @@ namespace calculadora_Com_Obj
             this.dividirBtn.TabIndex = 14;
             this.dividirBtn.Text = "/";
             this.dividirBtn.UseVisualStyleBackColor = true;
-            this.dividirBtn.Click += new System.EventHandler(this.dividir_Click);
+            this.dividirBtn.Click += new System.EventHandler(this.Dividir_Click);
             // 
             // IgualBtn
             // 
@@ -262,7 +267,7 @@ namespace calculadora_Com_Obj
             this.IgualBtn.TabIndex = 15;
             this.IgualBtn.Text = " =";
             this.IgualBtn.UseVisualStyleBackColor = true;
-            this.IgualBtn.Click += new System.EventHandler(this.resultado_Click);
+            this.IgualBtn.Click += new System.EventHandler(this.Resultado_Click);
             // 
             // btn_limpar
             // 
@@ -276,7 +281,7 @@ namespace calculadora_Com_Obj
             this.btn_limpar.TabIndex = 16;
             this.btn_limpar.Text = "C";
             this.btn_limpar.UseVisualStyleBackColor = true;
-            this.btn_limpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            this.btn_limpar.Click += new System.EventHandler(this.BtnLimpar_Click);
             // 
             // salvo
             // 
@@ -300,9 +305,9 @@ namespace calculadora_Com_Obj
             this.pontobtn.TabIndex = 18;
             this.pontobtn.Text = " .";
             this.pontobtn.UseVisualStyleBackColor = true;
-            this.pontobtn.Click += new System.EventHandler(this.pontobtn_Click);
+            this.pontobtn.Click += new System.EventHandler(this.Pontobtn_Click);
             // 
-            // calculadora
+            // Calculadora
             // 
             this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(270, 467);
@@ -328,168 +333,169 @@ namespace calculadora_Com_Obj
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "calculadora";
+            this.Name = "Calculadora";
             this.ShowIcon = false;
             this.Text = "Cal-ogj";
-            this.Load += new System.EventHandler(this.calculado_Load);
+            this.Load += new System.EventHandler(this.Calculado_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
-        private void num1_Click(object sender, EventArgs e)
+        private void Num1_Click(object sender, EventArgs e)
         {
+            
             tela.Text = tela.Text + "1";
             salvo.Text = salvo.Text + "1";
-         
+
         }
-        private void num2_Click(object sender, EventArgs e)
+        private void Num2_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "2";
             salvo.Text = salvo.Text + "2";
-          
+
         }
-        private void num3_Click(object sender, EventArgs e)
+        private void Num3_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "3";
             salvo.Text = salvo.Text + "3";
-          
+
         }
-        private void num4_Click(object sender, EventArgs e)
+        private void Num4_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "4";
             salvo.Text = salvo.Text + "4";
-          
+
         }
-        private void num5_Click(object sender, EventArgs e)
+        private void Num5_Click(object sender, EventArgs e)
         {
 
             tela.Text = tela.Text + "5";
             salvo.Text = salvo.Text + "5";
-           
+
         }
-        private void num6_Click(object sender, EventArgs e)
+        private void Num6_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "6";
             salvo.Text = salvo.Text + "6";
-      
+
         }
-        private void num7_Click(object sender, EventArgs e)
+        private void Num7_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "7";
             salvo.Text = salvo.Text + "7";
-       
+
         }
-        private void num8_Click(object sender, EventArgs e)
+        private void Num8_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "8";
             salvo.Text = salvo.Text + "8";
-  
-        }
-        private void num9_Click(object sender, EventArgs e)
-        {
-            tela.Text = tela.Text + "9";
-            salvo.Text = salvo.Text + "9";            
 
         }
-        private void numZero_Click(object sender, EventArgs e)
+        private void Num9_Click(object sender, EventArgs e)
+        {
+            tela.Text = tela.Text + "9";
+            salvo.Text = salvo.Text + "9";
+
+        }
+        private void NumZero_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + "0";
-            salvo.Text = salvo.Text + "0"; 
-           
+            salvo.Text = salvo.Text + "0";
+
         }
-        private void calculado_Load(object sender, EventArgs e)
+        private void Calculado_Load(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-        }      
-        private void somar_Click(object sender, EventArgs e)
+        }
+
+        // CHAMADA DOS CALCULOS POO 
+    
+        private void Somar_Click(object sender, EventArgs e)
         {
-            operador = "+";
+            operacao = "+";
             primeiro = double.Parse(tela.Text);
+            primeiro = aux;
             tela.Text = tela.Text + "+";
             salvo.Text = salvo.Text + "+";
             tela.Clear();
-           
-            
-        }
-        private void resultado_Click(object sender, EventArgs e)
-        {
-            
-            segundo = double.Parse(tela.Text);
-            tela.Text = tela.Text + "=";
-            salvo.Text = salvo.Text + "=";
-            double Resul;
-            switch(operador)
-            {
-                case "+":
-                  Resul =cal.Somar(primeiro,segundo);
-                    tela.Text = Resul.ToString();
-                    salvo.Text = "=" + Resul.ToString();
-                    break; 
-                case "-":
-                  Resul =cal.Subtracao(primeiro,segundo);
-                    tela.Text = Resul.ToString();
-                    salvo.Text = "=" + Resul.ToString();
-                    break;
-                case "*":
-                  Resul =cal.Multiplicar(primeiro,segundo);
-                    tela.Text = Resul.ToString();
-                    salvo.Text = "=" + Resul.ToString();
-                    break;
-                case "/":
-                  Resul =cal.Divisao(primeiro,segundo);
-                    tela.Text = string.Format("{0:F2}",Resul);
-                    salvo.Text = "=" + string.Format("{0:F2}",Resul);
-                    break;
-                default:
-                    break;
-            }
-
          }
-        private void dividir_Click(object sender, EventArgs e)
+        private void Dividir_Click(object sender, EventArgs e)
         {
-            operador = "/";
+            operacao = "/";
             primeiro = double.Parse(tela.Text);
             tela.Text = tela.Text + "/";
             salvo.Text = salvo.Text + "/";
-            tela.Clear();
-           
+            primeiro = aux;
+            tela.Clear();            
         }
-        private void multiplicar_Click(object sender, EventArgs e)
+        private void Multiplicar_Click(object sender, EventArgs e)
         {
-            operador = "*";
+            operacao = "*";
             primeiro = double.Parse(tela.Text);
             tela.Text = tela.Text + "*";
-            salvo.Text =salvo.Text + "*";
+            salvo.Text = salvo.Text + "*";
             tela.Clear();
-           
         }
-        private void diminuir_Click(object sender, EventArgs e)
+        private void Diminuir_Click(object sender, EventArgs e)
         {
-            operador = "-";
+            operacao = "-";
             primeiro = double.Parse(tela.Text);
             tela.Text = tela.Text + "-";
-            salvo.Text =salvo.Text + "-";
+            salvo.Text = salvo.Text + "-";
             tela.Clear();
         }
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void BtnLimpar_Click(object sender, EventArgs e)
         {
+            primeiro = 0;
+            segundo = 0;
+            aux = 0;
             tela.Text = tela.Text + "";
-            salvo.Text = "";           
+            salvo.Text = "";
             tela.Clear();
-            
         }
-        private void pontobtn_Click(object sender, EventArgs e)
+        private void Pontobtn_Click(object sender, EventArgs e)
         {
             tela.Text = tela.Text + ".";
             salvo.Text = salvo.Text + ".";
         }
 
-        /*
-        private void btnNumber_Click(object sender, EventArgs e)
-        {            
-        }
-        */
+        // CHAMADA DOS CALCULOS PARA GERAR RESULTADO
+        public void Resultado_Click(object sender, EventArgs e)
+        {
 
-    }
+            segundo = double.Parse(tela.Text);            
+            salvo.Text = salvo.Text + "=";
+            double resul;           
+            if (operacao == "+")
+            {
+                resul = Cal.Somar(primeiro, segundo);
+                aux = resul;
+                tela.Text = string.Format("{0:F1}", resul);
+            }
+            else if (operacao == "-")
+            {                
+                resul = Cal.Subtracao(primeiro, segundo);
+                aux = resul;
+                tela.Text = string.Format("{0:F1}", resul);
+               
+                }
+            else if (operacao == "*")
+            {
+
+                resul = Cal.Multiplicar(primeiro, segundo);
+                aux = resul;
+                tela.Text = string.Format("{0:F1}", resul);
+                
+                }
+            else if (operacao == "/")
+            {
+                resul = Cal.Divisao(primeiro, segundo);
+                aux = resul;
+                tela.Text = string.Format("{0:F1}", resul);
+              }
+             
+            resul = 0;
+            }
+
+  }
 }

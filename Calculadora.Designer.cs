@@ -1,6 +1,6 @@
 ﻿namespace calculadora_Com_Obj
 {
-    partial class calculadora
+    partial class Calculadora
     {
         /// <summary>
         /// Variável de designer necessária.
